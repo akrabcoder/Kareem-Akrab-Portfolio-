@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050806">
+<title>Kareem Fathy Aqrab | Portfolio</title>
+<meta name="description" content="Kareem Fathy Aqrab — Aviation Information Systems Student & Web Developer">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#050806;
+  --panel:#0b110d;
+  --panel2:#101a13;
+  --green:#00f58a;
+  --green2:#9affc8;
+  --white:#f3fff7;
+  --muted:#9aada1;
+  --line:rgba(91,255,165,.16);
+  --mono:'JetBrains Mono',monospace;
+  --shadow:0 20px 70px #0009;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{
+  background:var(--bg);color:var(--white);
+  font-family:'Cairo',sans-serif;overflow-x:hidden
+}
+body.en{font-family:Inter,sans-serif}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+::selection{background:var(--green);color:#00190b}
+.container{width:min(1160px,91%);margin:auto}
+
+#matrix{
+  position:fixed;inset:0;width:100%;height:100%;
+  z-index:-3;opacity:.13;pointer-events:none
+}
+.grid-bg{
+  position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background-image:
+  linear-gradient(rgba(0,245,138,.035) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(0,245,138,.035) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:linear-gradient(to bottom,black,transparent 85%)
+}
+.glow{
+  position:fixed;width:500px;height:500px;border-radius:50%;
+  filter:blur(150px);opacity:.12;pointer-events:none;
+  z-index:-1;background:#00ff88;top:-240px;left:15%
+}
+
+/* NAV */
+header{
+  height:76px;position:fixed;inset:0 0 auto;z-index:50;
+  background:#050806e8;backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line)
+}
+nav{
+  height:100%;display:flex;align-items:center;
+  justify-content:space-between
+}
+.logo{font:900 22px var(--mono);direction:ltr}
+.logo b{color:var(--green)}
+.navlinks{display:flex;gap:17px;align-items:center}
+.navlinks a{font-size:12px;color:var(--muted);transition:.25s}
+.navlinks a:hover{color:var(--green)}
+.navright{display:flex;gap:9px}
+.smallbtn,.menubtn{
+  background:#0c150f;border:1px solid var(--line);
+  color:var(--green2);padding:8px 13px;border-radius:8px
+}
+.menubtn{display:none}
+
+/* HERO */
+.hero{
+  min-height:100vh;padding:140px 0 65px;
+  display:flex;align-items:center;position:relative
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.1fr .9fr;
+  gap:55px;align-items:center
+}
+.kicker{
+  font:600 11px var(--mono);color:var(--green);
+  letter-spacing:2px;direction:ltr;
+  display:inline-flex;gap:9px;align-items:center;
+  border:1px solid var(--line);background:#00f58a0b;
+  padding:9px 13px;border-radius:5px;margin-bottom:25px
+}
+.live-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--green);box-shadow:0 0 12px var(--green);
+  animation:pulse 1.5s infinite
+}
+@keyframes pulse{50%{opacity:.25}}
+h1{
+  font-size:clamp(42px,6vw,76px);
+  line-height:1.16;font-weight:900;margin-bottom:16px
+}
+h1 .accent{color:var(--green);text-shadow:0 0 30px #00f58a45}
+.role{
+  font:600 clamp(15px,2vw,20px) var(--mono);
+  color:#c8f9d9;direction:ltr;text-align:right;margin-bottom:22px
+}
+.hero-copy{
+  max-width:610px;color:var(--muted);
+  line-height:2.1;font-size:15px
+}
+.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:29px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  gap:9px;padding:13px 20px;border-radius:7px;
+  font-size:13px;font-weight:800;
+  border:1px solid var(--line);transition:.25s
+}
+.btn-primary{background:var(--green);color:#001b0c;box-shadow:0 0 25px #00f58a25}
+.btn-primary:hover{transform:translateY(-4px);box-shadow:0 0 35px #00f58a60}
+.btn-ghost{background:#ffffff05;color:var(--white)}
+.btn-ghost:hover{border-color:var(--green);color:var(--green)}
+.hero-visual{position:relative;min-height:480px;display:grid;place-items:center}
+.portrait-frame{
+  width:min(360px,82%);height:445px;position:relative;
+  border:1px solid #00f58a66;border-radius:10px;padding:9px;
+  background:linear-gradient(145deg,#0d2417,#060a07);
+  box-shadow:0 0 55px #00f58a18,var(--shadow);transform:rotate(1deg)
+}
+.portrait-frame:before{
+  content:'PROFILE.JPG';position:absolute;top:-13px;left:20px;
+  background:var(--bg);color:var(--green);
+  font:10px var(--mono);padding:4px 9px;z-index:2
+}
+.portrait-frame img{
+  width:100%;height:100%;object-fit:cover;
+  object-position:center 28%;border-radius:5px
+}
+.portrait-frame:after{
+  content:'';position:absolute;inset:9px;
+  background:linear-gradient(0deg,#00150988,transparent 50%);
+  pointer-events:none
+}
+.float-code{
+  position:absolute;background:#08120c;border:1px solid var(--line);
+  box-shadow:var(--shadow);padding:13px 15px;border-radius:7px;
+  font:11px/1.8 var(--mono);direction:ltr;color:#b8e9c9;z-index:3
+}
+.float-code strong{color:var(--green)}
+.fc1{right:-5px;top:48px}
+.fc2{left:-5px;bottom:48px}
+.cursor{
+  display:inline-block;width:7px;height:14px;
+  background:var(--green);vertical-align:middle;
+  animation:blink .8s steps(2) infinite
+}
+@keyframes blink{50%{opacity:0}}
+
+/* TERMINAL */
+.terminal{
+  max-width:660px;margin:38px auto 0;
+  border:1px solid #00f58a35;background:#050a07ed;
+  border-radius:9px;overflow:hidden;box-shadow:0 15px 60px #0008;
+  direction:ltr;text-align:left
+}
+.term-head{
+  height:38px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;padding:0 13px;gap:7px;
+  color:#819b89;font:10px var(--mono)
+}
+.term-dot{width:8px;height:8px;border-radius:50%;background:#345b42}
+.term-title{margin-left:8px}
+.term-body{padding:15px 18px;font:11px/2 var(--mono);color:#a5cdb2;min-height:115px}
+.term-body .green{color:var(--green)}
+.term-body .dim{color:#64816e}
+
+/* SECTIONS */
+section{padding:95px 0}
+.section-head{text-align:center;margin-bottom:44px}
+.eyebrow{font:700 11px var(--mono);letter-spacing:3px;color:var(--green);direction:ltr}
+.section-head h2{font-size:34px;margin:10px 0}
+.section-head p{font-size:13px;color:var(--muted)}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+.panel{
+  background:linear-gradient(145deg,#0d1710,#080d09);
+  border:1px solid var(--line);border-radius:10px;padding:27px
+}
+.panel h3{font-size:19px;margin-bottom:13px}
+.panel p{font-size:13px;line-height:2.1;color:var(--muted)}
+.facts{display:grid;gap:14px}
+.fact{
+  display:flex;justify-content:space-between;gap:15px;
+  border-bottom:1px solid var(--line);padding-bottom:11px;font-size:12px
+}
+.fact:last-child{border:0;padding:0}
+.fact span:first-child{color:var(--muted)}
+.fact span:last-child{color:#d9ffe5;font-weight:700}
+
+/* TIMELINE */
+.timeline{max-width:850px;margin:auto;display:grid;gap:18px}
+.timeline-card{
+  position:relative;padding:25px 28px;
+  background:linear-gradient(145deg,#0d1710,#080d09);
+  border:1px solid var(--line);border-radius:9px;
+  border-right:3px solid var(--green)
+}
+.timeline-date{font:11px var(--mono);color:var(--green);direction:ltr;text-align:right;margin-bottom:12px}
+.timeline-card h3{font-size:18px;margin-bottom:7px}
+.timeline-card h4{font-size:13px;color:var(--green2);margin-bottom:10px}
+.timeline-card p{font-size:12px;line-height:2;color:var(--muted)}
+.timeline-status{
+  display:inline-block;margin-top:13px;padding:5px 10px;
+  border:1px solid var(--line);border-radius:4px;
+  color:var(--green);font-size:10px
+}
+
+/* SKILLS */
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.skill{
+  padding:21px 14px;text-align:center;border:1px solid var(--line);
+  border-radius:8px;background:#0b120d;transition:.25s
+}
+.skill:hover{transform:translateY(-5px);border-color:var(--green);box-shadow:0 10px 35px #00f58a10}
+.skill .ico{font-size:25px;margin-bottom:10px}
+.skill h3{font:700 13px var(--mono);direction:ltr}
+.skill p{font-size:11px;color:var(--muted);margin-top:6px}
+
+/* PROJECTS */
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.project{
+  border:1px solid var(--line);background:#0a100c;
+  border-radius:10px;overflow:hidden;transition:.3s
+}
+.project:hover{transform:translateY(-5px);border-color:#00f58a80;box-shadow:0 15px 45px #00f58a0b}
+.preview{height:235px;position:relative;background:#050805;overflow:hidden;border-bottom:1px solid var(--line)}
+.preview iframe{
+  width:1440px;height:950px;border:0;transform:scale(.36);
+  transform-origin:top left;pointer-events:none;background:white
+}
+.preview .shot{width:100%;height:100%;object-fit:cover;object-position:top}
+.preview-label{
+  position:absolute;top:10px;left:10px;background:#06120bdf;
+  border:1px solid var(--line);color:var(--green);
+  font:9px var(--mono);padding:6px 8px;z-index:2
+}
+.preview-shade{position:absolute;inset:0;background:linear-gradient(0deg,#071009aa,transparent 50%);pointer-events:none}
+.project-info{padding:20px}
+.project-top{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.project h3{font-size:17px}
+.project p{color:var(--muted);font-size:12px;line-height:1.9;margin:9px 0 13px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:15px}
+.tags span{
+  font:9px var(--mono);color:var(--green2);background:#00f58a0d;
+  border:1px solid #00f58a20;padding:5px 8px;border-radius:4px;direction:ltr
+}
+.project-actions{display:flex;gap:9px;flex-wrap:wrap}
+.project-actions a{font-size:11px;color:var(--green);border:1px solid var(--line);padding:7px 11px;border-radius:5px}
+.project-actions a:hover{background:#00f58a12}
+
+/* SERVICES */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.service{padding:25px;border:1px solid var(--line);background:#0a110c;border-radius:9px}
+.service .ico{font-size:25px;margin-bottom:13px}
+.service h3{font-size:16px;margin-bottom:9px}
+.service p{font-size:12px;line-height:2;color:var(--muted)}
+
+/* EXTRA CV */
+.cv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.cv-card{
+  background:linear-gradient(145deg,#0d1710,#080d09);
+  border:1px solid var(--line);border-radius:9px;padding:24px
+}
+.cv-card h3{font-size:17px;color:var(--green2);margin-bottom:15px}
+.cv-card p,.cv-card li{font-size:12px;color:var(--muted);line-height:2}
+.cv-card ul{padding-right:20px}
+.cv-card li{margin-bottom:5px}
+.language-row{
+  display:flex;justify-content:space-between;gap:12px;
+  padding:12px 0;border-bottom:1px solid var(--line);font-size:13px
+}
+.language-row:last-child{border:0}
+.language-row span:last-child{color:var(--green)}
+.interests{display:flex;flex-wrap:wrap;gap:8px}
+.interests span{
+  border:1px solid var(--line);background:#00f58a0c;
+  color:var(--green2);font-size:11px;padding:8px 11px;border-radius:5px
+}
+.cv-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:25px}
+
+/* CONTACT */
+.contact-box{
+  text-align:center;border:1px solid #00f58a42;border-radius:12px;
+  padding:48px 25px;
+  background:radial-gradient(ellipse at 50% 0%,#00f58a12,transparent 65%),#09100b
+}
+.contact-box h2{font-size:30px;margin-bottom:10px}
+.contact-box p{color:var(--muted);font-size:13px;line-height:2;margin-bottom:22px}
+.socials{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}
+.socials a{
+  font:11px var(--mono);color:#c9f5d6;border:1px solid var(--line);
+  padding:9px 13px;border-radius:5px;direction:ltr
+}
+.socials a:hover{color:var(--green);border-color:var(--green)}
+.contact-details{
+  display:flex;justify-content:center;gap:20px;flex-wrap:wrap;
+  margin-top:24px;color:var(--muted);font-size:12px
+}
+footer{text-align:center;border-top:1px solid var(--line);padding:25px 10px;color:#819487;font-size:11px}
+footer b{color:var(--green)}
+.reveal{opacity:0;transform:translateY(20px);transition:.7s}
+.reveal.show{opacity:1;transform:none}
+.empty{padding:35px;text-align:center;border:1px dashed var(--line);color:var(--muted);border-radius:9px;grid-column:1/-1}
+
+/* LOGIN + ADMIN */
+.admin-overlay{
+  position:fixed;inset:0;z-index:200;background:#020503f5;
+  display:none;align-items:center;justify-content:center;padding:18px
+}
+.admin-overlay.open{display:flex}
+.login-box{
+  width:min(430px,100%);background:#0b130d;
+  border:1px solid #00f58a55;border-radius:12px;
+  padding:28px;box-shadow:0 0 70px #00f58a15
+}
+.login-box h2{font-size:22px;margin-bottom:7px}
+.login-box p{font-size:12px;color:var(--muted);margin-bottom:20px}
+.field{display:grid;gap:7px;margin:12px 0}
+.field label{font-size:12px;color:#c7e8d0}
+.field input,.field textarea{
+  width:100%;background:#050a07;border:1px solid var(--line);
+  color:white;border-radius:6px;padding:11px;outline:none;font-size:13px;direction:auto
+}
+.field textarea{min-height:85px;resize:vertical}
+.field input:focus,.field textarea:focus{border-color:var(--green)}
+.login-error{color:#ff7e7e;font-size:12px;min-height:18px}
+.admin-panel{position:fixed;inset:0;z-index:210;background:#050806;display:none;overflow:auto}
+.admin-panel.open{display:block}
+.admin-top{
+  position:sticky;top:0;background:#08100aee;backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--line);padding:14px 0;z-index:2
+}
+.admin-top .container{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.admin-top h2{font:700 15px var(--mono);color:var(--green);direction:ltr}
+.admin-content{padding:28px 0 60px}
+.admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.tab,.admin-actions button{
+  background:#0b140e;border:1px solid var(--line);
+  color:#b7d5c0;padding:9px 13px;border-radius:6px;font-size:12px
+}
+.tab.active{background:var(--green);color:#001b0c;font-weight:800}
+.admin-section{display:none}
+.admin-section.active{display:block}
+.admin-card{background:#0a120c;border:1px solid var(--line);padding:20px;border-radius:9px;margin-bottom:15px}
+.admin-card h3{font-size:16px;margin-bottom:13px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 15px}
+.admin-list{display:grid;gap:10px}
+.admin-row{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;background:#0b140e;border:1px solid var(--line);
+  padding:12px;border-radius:7px
+}
+.admin-row small{color:var(--muted);display:block;font-size:10px;direction:ltr;text-align:right;overflow-wrap:anywhere}
+.admin-row strong{font-size:12px}
+.danger{border-color:#713333!important;color:#ff9999!important}
+.notice{font-size:11px;color:#a9c3b0;line-height:1.9;margin-top:10px}
+.admin-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.admin-actions .save{background:var(--green);color:#001b0c;font-weight:800}
+.admin-actions .danger{background:#210b0b}
+.hidden{display:none!important}
+
+@media(max-width:1000px){
+  .navlinks{gap:10px}
+  .navlinks a{font-size:10px}
+}
+@media(max-width:850px){
+  .hero-grid{grid-template-columns:1fr;gap:35px}
+  .hero-copy{text-align:center;margin:auto}
+  .hero-text{text-align:center}
+  .hero-actions{justify-content:center}
+  .hero-visual{min-height:430px}
+  .portrait-frame{height:390px}
+  .float-code.fc1{right:0}.float-code.fc2{left:0}
+  .navlinks{
+    display:none;position:absolute;top:76px;right:0;left:0;
+    background:#071009;padding:20px;flex-direction:column;
+    border-bottom:1px solid var(--line)
+  }
+  .navlinks.open{display:flex}
+  .menubtn{display:block}
+  .skills{grid-template-columns:repeat(2,1fr)}
+  .services{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  section{padding:70px 0}
+  .hero{padding-top:120px}
+  .hero-visual{min-height:390px}
+  .portrait-frame{width:75%;height:350px}
+  .float-code{font-size:9px;padding:9px}
+  .fc1{top:35px}.fc2{bottom:35px}
+  .about-grid,.projects,.services,.cv-grid{grid-template-columns:1fr}
+  .section-head h2{font-size:28px}
+  .preview{height:205px}
+  .preview iframe{transform:scale(.27)}
+  .contact-box h2{font-size:24px}
+  .form-grid{grid-template-columns:1fr}
+  .admin-top h2{font-size:12px}
+}
+
+/* PRINT CV */
+@media print{
+  body{background:white!important;color:#111!important;font-family:Arial,sans-serif!important}
+  #matrix,.grid-bg,.glow,header,.hero,.terminal,footer,
+  #projects,#services,#contact,.admin-overlay,.admin-panel,
+  .cv-actions{display:none!important}
+  section{display:none!important}
+  #about,#education,#experience,#skills,#cv{display:block!important;padding:15px 0!important}
+  .container{width:100%!important}
+  .section-head{margin-bottom:15px}
+  .section-head h2{color:#111!important}
+  .section-head p,.eyebrow{color:#333!important}
+  .panel,.timeline-card,.cv-card,.skill{
+    background:white!important;color:#111!important;
+    border:1px solid #bbb!important;box-shadow:none!important;
+    break-inside:avoid
+  }
+  .panel p,.timeline-card p,.cv-card p,.cv-card li,.skill p,
+  .fact span,.language-row{color:#333!important}
+  .fact span:last-child,.timeline-card h3,.cv-card h3,
+  .timeline-card h4,.skill h3{color:#111!important}
+  .skills{grid-template-columns:repeat(3,1fr)}
+  .cv-grid{grid-template-columns:1fr 1fr}
+  .reveal{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+
+<body>
+<canvas id="matrix"></canvas>
+<div class="grid-bg"></div>
+<div class="glow"></div>
+
+<header>
+<nav class="container">
+  <a class="logo" href="#home">KAREEM<b>.</b></a>
+  <div class="navlinks" id="navlinks">
+    <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+    <a href="#about" data-ar="عني" data-en="About">عني</a>
+    <a href="#education" data-ar="التعليم" data-en="Education">التعليم</a>
+    <a href="#experience" data-ar="الخبرات" data-en="Experience">الخبرات</a>
+    <a href="#skills" data-ar="المهارات" data-en="Skills">المهارات</a>
+    <a href="#projects" data-ar="المشاريع" data-en="Projects">المشاريع</a>
+    <a href="#cv" data-ar="السيرة الذاتية" data-en="CV">السيرة الذاتية</a>
+    <a href="#contact" data-ar="تواصل" data-en="Contact">تواصل</a>
+  </div>
+  <div class="navright">
+    <button class="smallbtn" id="langBtn">EN</button>
+    <button class="menubtn" id="menuBtn">☰</button>
+  </div>
+</nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="container">
+<div class="hero-grid">
+
+<div class="hero-text reveal">
+  <div class="kicker">
+    <i class="live-dot"></i>
+    <span data-ar="طالب نظم معلومات الطيران · مطور ويب" data-en="AVIATION INFORMATION SYSTEMS STUDENT · WEB DEVELOPER">طالب نظم معلومات الطيران · مطور ويب</span>
+  </div>
+
+  <h1>
+    <span data-ar="أنا ببني" data-en="I BUILD">أنا ببني</span><br>
+    <span class="accent" data-ar="تجارب رقمية" data-en="DIGITAL">تجارب رقمية</span><br>
+    <span data-ar="تسيب أثر." data-en="EXPERIENCES.">تسيب أثر.</span>
+  </h1>
+
+  <div class="role">&lt; Web Developer /&gt;</div>
+
+  <p class="hero-copy"
+  data-ar="أنا كريم فتحي عقرب، طالب بكلية الحاسبات والمعلومات بجامعة الزقازيق الأهلية، تخصص نظم معلومات الطيران. مهتم بالتكنولوجيا وتطوير الويب والذكاء الاصطناعي وبناء حلول رقمية عملية."
+  data-en="I'm Kareem Fathy Aqrab, an Aviation Information Systems student at Zagazig National University. I'm interested in technology, web development, AI and building practical digital solutions.">
+  أنا كريم فتحي عقرب، طالب بكلية الحاسبات والمعلومات بجامعة الزقازيق الأهلية، تخصص نظم معلومات الطيران. مهتم بالتكنولوجيا وتطوير الويب والذكاء الاصطناعي وبناء حلول رقمية عملية.
+  </p>
+
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="#projects" data-ar="شوف مشاريعي ↗" data-en="Explore Projects ↗">شوف مشاريعي ↗</a>
+    <a class="btn btn-ghost" href="#cv" data-ar="السيرة الذاتية" data-en="My CV">السيرة الذاتية</a>
+    <a class="btn btn-ghost" href="#contact" data-ar="تواصل معايا" data-en="Contact Me">تواصل معايا</a>
+  </div>
+
+  <div class="terminal">
+    <div class="term-head">
+      <i class="term-dot"></i><i class="term-dot"></i><i class="term-dot"></i>
+      <span class="term-title">kareem@dev: ~/portfolio</span>
+    </div>
+    <div class="term-body">
+      <div><span class="green">kareem@dev</span>:~$ whoami</div>
+      <div>Web Developer · Technology Enthusiast</div>
+      <div><span class="green">kareem@dev</span>:~$ <span id="typed"></span><i class="cursor"></i></div>
+      <div class="dim" id="terminalStatus">Initializing development environment...</div>
+    </div>
+  </div>
+</div>
+
+<div class="hero-visual reveal">
+  <div class="float-code fc1">
+    <strong>const</strong> passion = "coding";<br>
+    <strong>while</strong> (learning) {<br>
+    &nbsp; build();<br>
+    }
+  </div>
+
+  <div class="portrait-frame">
+    <img id="profileImage" src="assets/kareem.jpg" alt="Kareem Fathy Aqrab">
+  </div>
+
+  <div class="float-code fc2">
+    <strong>git status</strong><br>
+    ● building something<br>
+    new and useful <span class="cursor"></span>
+  </div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="container">
+  <div class="section-head reveal">
+    <div class="eyebrow">// ABOUT ME</div>
+    <h2 data-ar="مش مجرد كود... دي رحلة بناء" data-en="More Than Code. A Building Journey.">مش مجرد كود... دي رحلة بناء</h2>
+    <p data-ar="تعرف على الشخص اللي ورا الشاشة" data-en="Meet the person behind the screen">تعرف على الشخص اللي ورا الشاشة</p>
+  </div>
+
+  <div class="about-grid">
+    <div class="panel reveal">
+      <h3 data-ar="أهلاً، أنا كريم 👋" data-en="Hey, I'm Kareem 👋">أهلاً، أنا كريم 👋</h3>
+      <p id="aboutText">أنا كريم فتحي عقرب، طالب بكلية الحاسبات والمعلومات بجامعة الزقازيق الأهلية، تخصص نظم معلومات الطيران. مهتم بالتكنولوجيا ونظم المعلومات والذكاء الاصطناعي والتحول الرقمي. أعمل على تطوير مهاراتي التقنية والمهنية من خلال التعلم المستمر وتنفيذ المشاريع، وأسعى للحصول على فرص تدريب وتعلم دولية.</p>
+    </div>
+
+    <div class="panel reveal">
+      <div class="facts">
+        <div class="fact"><span data-ar="الاسم" data-en="Name">الاسم</span><span id="factName">Kareem Fathy Aqrab</span></div>
+        <div class="fact"><span data-ar="الجامعة" data-en="University">الجامعة</span><span>ZN University</span></div>
+        <div class="fact"><span data-ar="التخصص" data-en="Specialization">التخصص</span><span id="factField">Aviation Information Systems</span></div>
+        <div class="fact"><span data-ar="الموقع" data-en="Location">الموقع</span><span>Egypt</span></div>
+        <div class="fact"><span data-ar="اللغة" data-en="Program">اللغة</span><span>English Program</span></div>
+        <div class="fact"><span data-ar="البراند" data-en="Tech Brand">البراند</span><span>Kareem Tech Lab</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+<div class="container">
+  <div class="section-head reveal">
+    <div class="eyebrow">// EDUCATION</div>
+    <h2 data-ar="رحلتي التعليمية" data-en="Education">رحلتي التعليمية</h2>
+    <p data-ar="المسار الأكاديمي والخلفية التعليمية" data-en="My academic background and educational journey">المسار الأكاديمي والخلفية التعليمية</p>
+  </div>
+
+  <div class="timeline">
+    <article class="timeline-card reveal">
+      <div class="timeline-date">2026 — PRESENT</div>
+      <h3 data-ar="جامعة الزقازيق الأهلية" data-en="Zagazig National University">جامعة الزقازيق الأهلية</h3>
+      <h4 data-ar="كلية الحاسبات والمعلومات — نظم معلومات الطيران" data-en="Faculty of Computers & Information — Aviation Information Systems">كلية الحاسبات والمعلومات — نظم معلومات الطيران</h4>
+      <p data-ar="طالب جامعي في برنامج باللغة الإنجليزية. أدرس مجال الحاسبات والمعلومات مع اهتمام خاص بالتكنولوجيا ونظم المعلومات وتطبيقاتها." data-en="Undergraduate student in an English-medium program, studying computing and information systems with an interest in technology and its applications.">طالب جامعي في برنامج باللغة الإنجليزية. أدرس مجال الحاسبات والمعلومات مع اهتمام خاص بالتكنولوجيا ونظم المعلومات وتطبيقاتها.</p>
+      <span class="timeline-status" data-ar="مستمر في الدراسة" data-en="Currently Studying">مستمر في الدراسة</span>
+    </article>
+
+    <article class="timeline-card reveal">
+      <div class="timeline-date">2023 — 2026</div>
+      <h3 data-ar="مدرسة الشهيد أشرف أحمد بربر الثانوية بنين" data-en="Al-Shaheed Ashraf Ahmed Barber Secondary Boys School">مدرسة الشهيد أشرف أحمد بربر الثانوية بنين</h3>
+      <h4 data-ar="الثانوية العامة — الشعبة العلمية علوم" data-en="General Secondary Education — Scientific Sciences">الثانوية العامة — الشعبة العلمية علوم</h4>
+      <p data-ar="أتممت دراستي الثانوية بالشعبة العلمية علوم وتخرجت عام 2026." data-en="Completed secondary education in the Scientific Sciences track and graduated in 2026.">أتممت دراستي الثانوية بالشعبة العلمية علوم وتخرجت عام 2026.</p>
+      <span class="timeline-status" data-ar="خريج 2026" data-en="Graduated 2026">خريج 2026</span>
+    </article>
+  </div>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+<div class="container">
+  <div class="section-head reveal">
+    <div class="eyebrow">// EXPERIENCE</div>
+    <h2 data-ar="الخبرات العملية" data-en="Work Experience">الخبرات العملية</h2>
+    <p data-ar="خبرات عملية ساعدتني على تطوير مهارات التواصل والعمل" data-en="Practical experience that helped me develop communication and teamwork skills">خبرات عملية ساعدتني على تطوير مهارات التواصل والعمل</p>
+  </div>
+
+  <div class="timeline">
+    <article class="timeline-card reveal">
+      <div class="timeline-date">EGYPT · HOSPITALITY</div>
+      <h3 data-ar="خدمة العملاء والضيافة" data-en="Customer Service & Hospitality">خدمة العملاء والضيافة</h3>
+      <h4 data-ar="مطاعم — قاعات مناسبات — حمامات سباحة" data-en="Restaurants — Event Halls — Swimming Pools">مطاعم — قاعات مناسبات — حمامات سباحة</h4>
+      <p data-ar="خبرة عملية في التعامل مع العملاء والعمل ضمن فرق في بيئات سريعة الإيقاع. اكتسبت مهارات التواصل وخدمة العملاء وتحمل المسؤولية والالتزام وإدارة الوقت والتكيف مع ضغط العمل وحل المشكلات." data-en="Practical experience interacting with customers and working in teams in fast-paced environments. Developed communication, customer service, responsibility, time management, adaptability and problem-solving skills.">خبرة عملية في التعامل مع العملاء والعمل ضمن فرق في بيئات سريعة الإيقاع. اكتسبت مهارات التواصل وخدمة العملاء وتحمل المسؤولية والالتزام وإدارة الوقت والتكيف مع ضغط العمل وحل المشكلات.</p>
+      <span class="timeline-status" data-ar="خبرة عملية" data-en="Practical Experience">خبرة عملية</span>
+    </article>
+  </div>
+</div>
+</section>
+
+<!-- TECHNICAL SKILLS -->
+<section id="skills">
+<div class="container">
+  <div class="section-head reveal">
+    <div class="eyebrow">// TECH STACK</div>
+    <h2 data-ar="المهارات التقنية" data-en="Technical Skills">المهارات التقنية</h2>
+    <p data-ar="تقنيات ومجالات أتعلمها وأطور نفسي فيها" data-en="Technologies and fields I am learning and developing">تقنيات ومجالات أتعلمها وأطور نفسي فيها</p>
+  </div>
+  <div class="skills" id="skillsGrid"></div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<div class="container">
+  <div class="section-head reveal">
+    <div class="eyebrow">// SELECTED PROJECTS</div>
+    <h2 data-ar="مشاريع بتتكلم عن نفسها" data-en="Projects That Speak">مشاريع بتتكلم عن نفسها</h2>
+    <p data-ar="لقطات من شغلي — افتح أي مشروع وشوفه بنفسك" data-en="Previews from my work — open any project and explore">لقطات من شغلي — افتح أي مشروع وشوفه بنفسك</p>
+  </div>
+  <div class="projects" id="projectsGrid"></div>
+</div>
+</section>
+
+<!-- UNIVERSITY PROJECT -->
+<section id="university-project">
+<div class="container">
+  <div class="section-head reveal">
+    <div class="eyebrow">// PERSONAL PROJECT</div>
+    <h2 data-ar="مشروع قيد التطوير" data-en="Project In Development">مشروع قيد التطوير</h2>
+    <p data-ar="تطبيق لتنظيم الجدول الجامعي وإدارة الوقت" data-en="A university schedule and time management application">تطبيق لتنظيم الجدول الجامعي وإدارة الوقت</p>
+  </div>
+
+  <div class="panel reveal">
+    <div class="project-top">
+      <h3 data-ar="University Schedule & Time Management App" data-en="University Schedule & Time Management App">University Schedule & Time Management App</h3>
+      <span class="timeline-status" data-ar="قيد التطوير" data-en="In Development">قيد التطوير</span>
+    </div>
+    <p style="margin-top:15px" data-ar="مشروع شخصي يهدف إلى مساعدة الطلاب على تنظيم المحاضرات والمهام وإدارة الوقت من خلال واجهة سهلة الاستخدام تدعم العربية والإنجليزية." data-en="A personal project designed to help students organize lectures, tasks and time through an easy-to-use interface supporting Arabic and English.">مشروع شخصي يهدف إلى مساعدة الطلاب على تنظيم المحاضرات والمهام وإدارة الوقت من خلال واجهة سهلة الاستخدام تدعم العربية والإنجليزية.</p>
+
+    <div class="cv-grid" style="margin-top:20px">
+      <div>
+        <h3 style="color:var(--green);font-size:14px;margin-bottom:10px" data-ar="الخصائص المخطط لها" data-en="Planned Features">الخصائص المخطط لها</h3>
+        <ul style="padding-right:20px;color:var(--muted);font-size:12px;line-height:2.2">
+          <li data-ar="تنظيم مواعيد المحاضرات وبدايتها ونهايتها" data-en="Lecture scheduling with start and end times">تنظيم مواعيد المحاضرات وبدايتها ونهايتها</li>
+          <li data-ar="إدارة المهام وتنظيم الوقت" data-en="Task and time management">إدارة المهام وتنظيم الوقت</li>
+          <li data-ar="إدارة التوفر والإلغاء" data-en="Availability and cancellation management">إدارة التوفر والإلغاء</li>
+          <li data-ar="دعم العربية والإنجليزية" data-en="Arabic and English language support">دعم العربية والإنجليزية</li>
+          <li data-ar="تقويم وتصدير الجدول" data-en="Calendar and schedule export">تقويم وتصدير الجدول</li>
+          <li data-ar="معلومات الطقس ومواقيت الصلاة" data-en="Weather and prayer times information">معلومات الطقس ومواقيت الصلاة</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color:var(--green);font-size:14px;margin-bottom:10px" data-ar="التقنيات" data-en="Technology">التقنيات</h3>
+        <div class="tags">
+          <span>Python</span><span>Programming</span><span>Calendar</span><span>UI Design</span>
+        </div>
+        <p data-ar="الحالة الحالية: المشروع في مرحلة التطوير والتخطيط." data-en="Current status: Project is under development and planning.">الحالة الحالية: المشروع في مرحلة التطوير والتخطيط.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+<div class="container">
+  <div class="section-head reveal">
+    <div class="eyebrow">// WHAT I DO</div>
+    <h2 data-ar="إزاي أقدر أساعدك؟" data-en="How Can I Help?">إزاي أقدر أساعدك؟</h2>
+    <p data-ar="حلول رقمية تساعد مشروعك يظهر بشكل احترافي" data-en="Digital solutions to help your business stand out">حلول رقمية تساعد مشروعك يظهر بشكل احترافي</p>
+  </div>
+
+  <div class="services">
+    <article class="service reveal">
+      <div class="ico">💻</div>
+      <h3 data-ar="تطوير المواقع" data-en="Website Development">تطوير المواقع</h3>
+      <p data-ar="إنشاء مواقع احترافية ومتجاوبة مع الموبايل والكمبيوتر." data-en="Professional responsive websites for mobile and desktop.">إنشاء مواقع احترافية ومتجاوبة مع الموبايل والكمبيوتر.</p>
+    </article>
+    <article class="service reveal">
+      <div class="ico">🍽️</div>
+      <h3 data-ar="مواقع المطاعم والكافيهات" data-en="Restaurant Websites">مواقع المطاعم والكافيهات</h3>
+      <p data-ar="عرض المنيو والصور والخدمات وطرق التواصل بشكل مميز." data-en="Showcase menus, photos, services and contact details.">عرض المنيو والصور والخدمات وطرق التواصل بشكل مميز.</p>
+    </article>
+    <article class="service reveal">
+      <div class="ico">📱</div>
+      <h3 data-ar="واجهات وتجربة المستخدم" data-en="UI & User Experience">واجهات وتجربة المستخدم</h3>
+      <p data-ar="تصميم واجهات سهلة الاستخدام ومنظمة على كل الشاشات." data-en="Clean and user-friendly interfaces for all screens.">تصميم واجهات سهلة الاستخدام ومنظمة على كل الشاشات.</p>
+    </article>
+  </div>
+</div>
+</section>
+
+<!-- CV INFORMATION -->
+<section id="cv">
+<div class="container">
+  <div class="section-head reveal">
+    <div class="eyebrow">// PROFESSIONAL PROFILE</div>
+    <h2 data-ar="السيرة الذاتية" data-en="Curriculum Vitae">السيرة الذاتية</h2>
+    <p data-ar="المهارات واللغات والاهتمامات المهنية" data-en="Skills, languages and professional interests">المهارات واللغات والاهتمامات المهنية</p>
+  </div>
+
+  <div class="cv-grid">
+    <div class="cv-card reveal">
+      <h3 data-ar="المهارات الشخصية" data-en="Core Skills">المهارات الشخصية</h3>
+      <ul>
+        <li data-ar="التواصل الفعال" data-en="Communication">التواصل الفعال</li>
+        <li data-ar="العمل الجماعي" data-en="Teamwork">العمل الجماعي</li>
+        <li data-ar="خدمة العملاء" data-en="Customer Service">خدمة العملاء</li>
+        <li data-ar="إدارة الوقت" data-en="Time Management">إدارة الوقت</li>
+        <li data-ar="القدرة على التكيف" data-en="Adaptability">القدرة على التكيف</li>
+        <li data-ar="حل المشكلات" data-en="Problem Solving">حل المشكلات</li>
+        <li data-ar="تحمل المسؤولية" data-en="Responsibility">تحمل المسؤولية</li>
+        <li data-ar="الاستعداد للتعلم المستمر" data-en="Willingness to Learn">الاستعداد للتعلم المستمر</li>
+        <li data-ar="العمل تحت الضغط" data-en="Working Under Pressure">العمل تحت الضغط</li>
+      </ul>
+    </div>
+
+    <div class="cv-card reveal">
+      <h3 data-ar="اللغات" data-en="Languages">اللغات</h3>
+      <div class="language-row">
+        <span data-ar="العربية" data-en="Arabic">العربية</span>
+        <span data-ar="اللغة الأم" data-en="Native">اللغة الأم</span>
+      </div>
+      <div class="language-row">
+        <span data-ar="الإنجليزية" data-en="English">الإنجليزية</span>
+        <span data-ar="متوسط" data-en="Intermediate">متوسط</span>
+      </div>
+    </div>
+
+    <div class="cv-card reveal">
+      <h3 data-ar="الاهتمامات التقنية والمهنية" data-en="Technical & Professional Interests">الاهتمامات التقنية والمهنية</h3>
+      <div class="interests">
+        <span>Information Systems</span>
+        <span>Artificial Intelligence</span>
+        <span>Computer Technology</span>
+        <span>Digital Transformation</span>
+        <span>Python Programming</span>
+        <span>Data Management</span>
+        <span>Microsoft Office</span>
+        <span>Excel</span>
+        <span>Software Development</span>
+      </div>
+    </div>
+
+    <div class="cv-card reveal">
+      <h3 data-ar="اهتمامات إضافية" data-en="Additional Interests">اهتمامات إضافية</h3>
+      <div class="interests">
+        <span>Technology & Innovation</span>
+        <span>Information Systems</span>
+        <span>AI</span>
+        <span>Digital Transformation</span>
+        <span>International Development</span>
+        <span>Youth Development</span>
+        <span>Professional Development</span>
+      </div>
+    </div>
+
+    <div class="cv-card reveal" style="grid-column:1/-1">
+      <h3 data-ar="الملف المهني" data-en="Professional Profile">الملف المهني</h3>
+      <p data-ar="طالب جامعي في مجال الحاسبات والمعلومات، مهتم بالتكنولوجيا ونظم المعلومات والذكاء الاصطناعي والتحول الرقمي. أسعى إلى تطوير مهاراتي التقنية والمهنية من خلال التعلم المستمر والمشاركة في فرص التدريب والتطوير. أمتلك خبرة عملية في خدمة العملاء والضيافة والعمل الجماعي، ومنفتح على فرص التعلم والعمل في بيئات متنوعة ومتعددة الثقافات." data-en="Undergraduate student in Computers and Information, interested in technology, information systems, artificial intelligence and digital transformation. I aim to develop my technical and professional skills through continuous learning and training opportunities. I have practical experience in customer service, hospitality and teamwork, and I am open to learning and professional opportunities in diverse, multicultural environments.">طالب جامعي في مجال الحاسبات والمعلومات، مهتم بالتكنولوجيا ونظم المعلومات والذكاء الاصطناعي والتحول الرقمي. أسعى إلى تطوير مهاراتي التقنية والمهنية من خلال التعلم المستمر والمشاركة في فرص التدريب والتطوير. أمتلك خبرة عملية في خدمة العملاء والضيافة والعمل الجماعي، ومنفتح على فرص التعلم والعمل في بيئات متنوعة ومتعددة الثقافات.</p>
+    </div>
+  </div>
+
+  <div class="cv-actions">
+    <button class="btn btn-primary" onclick="window.print()" data-ar="تحميل / طباعة CV PDF ↓" data-en="Download / Print CV PDF ↓">تحميل / طباعة CV PDF ↓</button>
+    <a class="btn btn-ghost" href="https://linkedin.com/in/kareem-akrab-69b283438" target="_blank" rel="noopener">LinkedIn ↗</a>
+  </div>
+  <p style="text-align:center;color:var(--muted);font-size:11px;margin-top:14px" data-ar="يمكنك اختيار Save as PDF من نافذة الطباعة لحفظ نسخة PDF." data-en="Choose Save as PDF in the print dialog to save a PDF copy.">يمكنك اختيار Save as PDF من نافذة الطباعة لحفظ نسخة PDF.</p>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+  <div class="contact-box reveal">
+    <h2 data-ar="عندك فكرة؟ خلينا نبنيها!" data-en="Have an Idea? Let's Build It!">عندك فكرة؟ خلينا نبنيها!</h2>
+    <p data-ar="سواء عندك مشروع أو فرصة تدريب أو حابب تتواصل معايا، ابعتلي ونتكلم." data-en="Whether you have a project, an internship opportunity or just want to connect, feel free to contact me.">سواء عندك مشروع أو فرصة تدريب أو حابب تتواصل معايا، ابعتلي ونتكلم.</p>
+
+    <a class="btn btn-primary" id="whatsappLink" href="https://wa.me/201070678323" target="_blank" rel="noopener">WhatsApp ↗</a>
+
+    <div class="socials">
+      <a id="githubLink" href="https://github.com/akrabcoder" target="_blank" rel="noopener">GitHub ↗</a>
+      <a id="linkedinLink" href="https://linkedin.com/in/kareem-akrab-69b283438" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a id="emailLink" href="mailto:krymqrb483@gmail.com">Email ↗</a>
+    </div>
+
+    <div class="contact-details">
+      <span>📍 Egypt</span>
+      <span>📧 krymqrb483@gmail.com</span>
+      <span>📞 01070678323</span>
+    </div>
+  </div>
+</div>
+</section>
+
+</main>
+
+<footer>
+  <p>© <span id="year"></span> Kareem Fathy Aqrab. All Rights Reserved.</p>
+  <p style="margin-top:8px">Designed &amp; Built with <b>♥</b> by Kareem</p>
+</footer>
+
+<!-- LOGIN -->
+<div class="admin-overlay" id="loginOverlay">
+  <div class="login-box">
+    <h2>ADMIN ACCESS</h2>
+    <p>Enter your password to manage your portfolio.</p>
+    <form id="loginForm">
+      <div class="field">
+        <label for="passwordInput">كلمة المرور</label>
+        <input id="passwordInput" type="password" autocomplete="current-password" required>
+      </div>
+      <div class="login-error" id="loginError"></div>
+      <div class="admin-actions">
+        <button class="save" type="submit">دخول لوحة التحكم</button>
+        <button type="button" id="cancelLogin">إلغاء</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-panel" id="adminPanel">
+  <div class="admin-top">
+    <div class="container">
+      <h2>KAREEM / CONTROL PANEL</h2>
+      <div class="admin-actions">
+        <button id="viewSite">عرض الموقع</button>
+        <button id="logoutBtn" class="danger">تسجيل الخروج</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container admin-content">
+    <h2>لوحة إدارة الموقع 👑</h2>
+    <p class="notice">التعديلات محفوظة في المتصفح الحالي فقط. استخدم النسخ الاحتياطي لحفظ نسخة من بياناتك.</p>
+
+    <div class="admin-tabs">
+      <button class="tab active" data-tab="projectsAdmin">المشاريع</button>
+      <button class="tab" data-tab="profileAdmin">الملف الشخصي</button>
+      <button class="tab" data-tab="skillsAdmin">المهارات</button>
+      <button class="tab" data-tab="backupAdmin">نسخ احتياطي</button>
+    </div>
+
+    <div class="admin-section active" id="projectsAdmin">
+      <div class="admin-card">
+        <h3 id="projectFormTitle">إضافة مشروع جديد</h3>
+        <form id="projectForm">
+          <input type="hidden" name="id">
+          <div class="form-grid">
+            <div class="field">
+              <label>اسم المشروع</label>
+              <input name="title" required placeholder="My Awesome Project">
+            </div>
+            <div class="field">
+              <label>رابط الموقع</label>
+              <input name="url" type="url" required placeholder="https://example.com">
+            </div>
+            <div class="field">
+              <label>وصف المشروع</label>
+              <textarea name="description" required placeholder="وصف مختصر للمشروع"></textarea>
+            </div>
+            <div class="field">
+              <label>التقنيات (بفاصلة)</label>
+              <input name="tags" placeholder="HTML, CSS, JavaScript">
+            </div>
+            <div class="field">
+              <label>صورة معاينة المشروع</label>
+              <input name="image" type="file" accept="image/*">
+            </div>
+          </div>
+          <div class="admin-actions">
+            <button class="save" type="submit" id="projectSubmit">حفظ المشروع</button>
+            <button type="button" id="cancelProjectEdit">إلغاء التعديل</button>
+          </div>
+        </form>
+        <p class="notice">ارفع Screenshot للموقع لو المعاينة المباشرة مش بتظهر بسبب منع iframe. حجم الصورة الأقصى 2MB.</p>
+      </div>
+
+      <div class="admin-card">
+        <h3>المشاريع الحالية</h3>
+        <div class="admin-list" id="adminProjectsList"></div>
+      </div>
+    </div>
+
+    <div class="admin-section" id="profileAdmin">
+      <div class="admin-card">
+        <h3>تعديل بياناتك</h3>
+        <form id="profileForm">
+          <div class="form-grid">
+            <div class="field"><label>الاسم</label><input name="name" id="editName"></div>
+            <div class="field"><label>التخصص</label><input name="field" id="editField"></div>
+            <div class="field"><label>نبذة عنك</label><textarea name="about" id="editAbout"></textarea></div>
+            <div class="field"><label>رقم واتساب بكود الدولة</label><input name="whatsapp" id="editWhatsapp"></div>
+            <div class="field"><label>رابط GitHub</label><input name="github" id="editGithub"></div>
+            <div class="field"><label>رابط LinkedIn</label><input name="linkedin" id="editLinkedin"></div>
+            <div class="field"><label>البريد الإلكتروني</label><input name="email" id="editEmail" type="email"></div>
+            <div class="field"><label>تغيير صورتك الشخصية</label><input name="photo" id="editPhoto" type="file" accept="image/*"></div>
+          </div>
+          <div class="admin-actions">
+            <button class="save" type="submit">حفظ البيانات</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="admin-section" id="skillsAdmin">
+      <div class="admin-card">
+        <h3>إضافة مهارة</h3>
+        <form id="skillForm">
+          <div class="form-grid">
+            <div class="field"><label>اسم المهارة</label><input name="name" required placeholder="React"></div>
+            <div class="field"><label>الأيقونة Emoji</label><input name="icon" placeholder="⚛️"></div>
+            <div class="field"><label>وصف مختصر</label><input name="description" placeholder="Frontend library"></div>
+          </div>
+          <div class="admin-actions"><button class="save" type="submit">إضافة المهارة</button></div>
+        </form>
+      </div>
+      <div class="admin-card">
+        <h3>المهارات الحالية</h3>
+        <div class="admin-list" id="adminSkillsList"></div>
+      </div>
+    </div>
+
+    <div class="admin-section" id="backupAdmin">
+      <div class="admin-card">
+        <h3>النسخ الاحتياطي</h3>
+        <p class="notice">نزّل نسخة من بيانات الموقع قبل تغيير المتصفح أو مسح بياناته. الصور المرفوعة تدخل ضمن النسخة.</p>
+        <div class="admin-actions">
+          <button class="save" id="exportBtn">تنزيل نسخة JSON</button>
+          <button id="importBtn">استيراد نسخة</button>
+          <input type="file" id="importFile" accept="application/json" class="hidden">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ADMIN LOGIN */
+const ADMIN_PASSWORD =
+'1234567890akrab akrab akrab akrab akrab koder Kareeem fathy Bb#100300700#';
+
+const STORAGE_KEY='kareemPortfolioData_v1';
+
+const defaultData={
+  profile:{
+    name:'Kareem Fathy Aqrab',
+    field:'Aviation Information Systems',
+    about:'أنا كريم فتحي عقرب، طالب بكلية الحاسبات والمعلومات بجامعة الزقازيق الأهلية، تخصص نظم معلومات الطيران. مهتم بالتكنولوجيا ونظم المعلومات والذكاء الاصطناعي والتحول الرقمي. أعمل على تطوير مهاراتي التقنية والمهنية من خلال التعلم المستمر وتنفيذ المشاريع، وأسعى للحصول على فرص تدريب وتعلم دولية.',
+    whatsapp:'201070678323',
+    github:'https://github.com/akrabcoder',
+    linkedin:'https://linkedin.com/in/kareem-akrab-69b283438',
+    email:'krymqrb483@gmail.com',
+    photo:''
+  },
+
+  skills:[
+    {name:'HTML5',icon:'🌐',description:'Web structure'},
+    {name:'CSS3',icon:'🎨',description:'Styling & layouts'},
+    {name:'JavaScript',icon:'⚡',description:'Interactive web'},
+    {name:'Python',icon:'🐍',description:'Programming'},
+    {name:'Git & GitHub',icon:'🐙',description:'Version control'},
+    {name:'Cloudflare',icon:'☁️',description:'Web deployment'},
+    {name:'Supabase',icon:'🗄️',description:'Backend & database'},
+    {name:'Linux',icon:'🐧',description:'Command line'},
+    {name:'Microsoft Office',icon:'📊',description:'Office tools'},
+    {name:'Excel',icon:'📈',description:'Data management'},
+    {name:'Information Systems',icon:'🖥️',description:'Technical interest'},
+    {name:'AI',icon:'🤖',description:'Artificial Intelligence'}
+  ],
+
+  projects:[
+    {
+      id:1,
+      title:'Karki Restaurant',
+      url:'https://akrabcoder.github.io/karki-restaurant/',
+      description:'موقع مطعم بتصميم فاخر وتجربة مستخدم عصرية لعرض العلامة التجارية.',
+      tags:['HTML','CSS','JavaScript'],
+      image:''
+    },
+    {
+      id:2,
+      title:'4x4 Cafe',
+      url:'https://akrabcoder.github.io/4x4-cafe-/',
+      description:'تصميم موقع كافيه لعرض الهوية والخدمات والأجواء بطريقة احترافية.',
+      tags:['HTML','CSS','JavaScript'],
+      image:''
+    },
+    {
+      id:3,
+      title:'SkyGuard',
+      url:'https://akrabcoder.github.io/SkyGuard2/',
+      description:'نموذج أولي لمشروع تقني يركز على مراقبة المقصورة والتنبيهات.',
+      tags:['Web','Prototype','Technology'],
+      image:''
+    },
+    {
+      id:4,
+      title:'Cairo Is Green',
+      url:'https://akrabcoder.github.io/cairo-is-green/',
+      description:'مشروع رقمي لتشجيع المبادرات البيئية والتحقق من النقاط والصور.',
+      tags:['Web','Leaflet','Supabase'],
+      image:''
+    },
+    {
+      id:5,
+      title:'Abu Youssef Seafood',
+      url:'https://abu-youssef-seafood-restaurant.akrabcoder.workers.dev',
+      description:'موقع لمطعم مأكولات بحرية يعرض الهوية والمنيو وطرق التواصل.',
+      tags:['HTML','CSS','Cloudflare'],
+      image:''
+    },
+    {
+      id:6,
+      title:'Shubra Store',
+      url:'https://akrabcoder.github.io/shobra_store/',
+      description:'تجربة متجر إلكتروني لعرض المنتجات والهوية التجارية.',
+      tags:['HTML','CSS','JavaScript'],
+      image:''
+    }
+  ]
+};
+
+/* DATA */
+function cloneDefault(){
+  return JSON.parse(JSON.stringify(defaultData));
+}
+
+function loadData(){
+  try{
+    const saved=JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if(!saved)return cloneDefault();
+
+    return{
+      ...cloneDefault(),
+      ...saved,
+      profile:{...defaultData.profile,...(saved.profile||{})},
+      skills:Array.isArray(saved.skills)?saved.skills:cloneDefault().skills,
+      projects:Array.isArray(saved.projects)?saved.projects:cloneDefault().projects
+    };
+  }catch(error){
+    return cloneDefault();
+  }
+}
+
+let data=loadData();
+let currentLang='ar';
+
+function saveData(){
+  try{
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+    return true;
+  }catch(error){
+    alert('مساحة التخزين غير كافية. قلل حجم الصور أو احذف صور قديمة.');
+    return false;
+  }
+}
+
+/* SAFE TEXT */
+function esc(value=''){
+  return String(value).replace(/[&<>"']/g,char=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[char]));
+}
+
+function safeUrl(value){
+  try{
+    const url=new URL(value);
+    return ['http:','https:'].includes(url.protocol)?url.href:'#';
+  }catch{
+    return '#';
+  }
+}
+
+/* IMAGE UPLOAD */
+function fileToData(file){
+  return new Promise((resolve,reject)=>{
+    if(!file)return resolve('');
+    if(!file.type.startsWith('image/'))return reject(new Error('اختار ملف صورة صالح.'));
+    if(file.size>2*1024*1024)return reject(new Error('حجم الصورة لازم يكون أقل من 2MB.'));
+
+    const reader=new FileReader();
+    reader.onload=()=>resolve(reader.result);
+    reader.onerror=()=>reject(new Error('تعذر قراءة الصورة.'));
+    reader.readAsDataURL(file);
+  });
+}
+
+/* PROJECTS */
+function renderProjects(){
+  const grid=document.getElementById('projectsGrid');
+
+  if(!data.projects.length){
+    grid.innerHTML='<div class="empty">لسه مفيش مشاريع. ادخل لوحة التحكم وأضف أول مشروع.</div>';
+    return;
+  }
+
+  grid.innerHTML=data.projects.map(project=>{
+    const url=safeUrl(project.url);
+
+    const preview=project.image
+      ?`<img class="shot" src="${project.image}" alt="${esc(project.title)} preview">`
+      :`<iframe src="${url}" title="${esc(project.title)} preview"
+          loading="lazy"
+          sandbox="allow-scripts allow-forms allow-popups"
+          referrerpolicy="no-referrer"></iframe>`;
+
+    return`
+      <article class="project reveal show">
+        <div class="preview">
+          <span class="preview-label">LIVE PREVIEW / ${esc(project.title)}</span>
+          ${preview}
+          <div class="preview-shade"></div>
+        </div>
+        <div class="project-info">
+          <div class="project-top">
+            <h3>${esc(project.title)}</h3>
+            <span style="color:var(--green);font:10px var(--mono)">PROJECT_${String(project.id).padStart(2,'0')}</span>
+          </div>
+          <p>${esc(project.description)}</p>
+          <div class="tags">
+            ${(project.tags||[]).map(tag=>`<span>${esc(tag)}</span>`).join('')}
+          </div>
+          <div class="project-actions">
+            <a href="${url}" target="_blank" rel="noopener">OPEN LIVE SITE ↗</a>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  observeReveal();
+}
+
+/* SKILLS */
+function renderSkills(){
+  document.getElementById('skillsGrid').innerHTML=data.skills.map(skill=>`
+    <article class="skill reveal show">
+      <div class="ico">${esc(skill.icon||'⌘')}</div>
+      <h3>${esc(skill.name)}</h3>
+      <p>${esc(skill.description||'')}</p>
+    </article>
+  
